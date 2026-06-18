@@ -1,0 +1,5 @@
+name: astrbot_plugin_jmcomic
+author: hjf2687
+desc: 通过 JMComic API 下载漫画
+version: 2.1.0
+repo: https://github.com/hjf2687/2687

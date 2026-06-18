@@ -1,0 +1,7 @@
+{
+  "api_url": {
+    "description": "JMComic API 服务器地址",
+    "type": "string",
+    "default": "http://127.0.0.1:5000"
+  }
+}

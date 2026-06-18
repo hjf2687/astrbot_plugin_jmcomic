@@ -1,0 +1,9 @@
+# 下载的漫画
+jm_comics/
+
+# PDF 缓存
+temp/
+
+# Python 缓存
+__pycache__/
+*.pyc
