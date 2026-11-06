@@ -7,3 +7,7 @@ temp/
 # Python 缓存
 __pycache__/
 *.pyc
+
+# 追加保险
+*.log
+.env

@@ -1,5 +1,6 @@
 name: astrbot_plugin_jmcomic
+display_name: JM漫画下载
 author: hjf2687
-desc: 通过 JMComic API 下载漫画
-version: 2.1.0
+desc: 通过 JMComic 下载漫画并转成 PDF 发送
+version: 2.3.5
 repo: https://github.com/hjf2687/2687

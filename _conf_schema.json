@@ -1,7 +1,68 @@
 {
-  "api_url": {
-    "description": "JMComic API 服务器地址",
+  "proxy": {
+    "description": "HTTP 代理，留空 = 直连",
     "type": "string",
-    "default": "http://127.0.0.1:5000"
+    "default": "",
+    "hint": "填 http://127.0.0.1:7890 这种。留空表示直连，会显式禁用系统代理和环境变量里的 http_proxy / https_proxy。"
+  },
+  "threads": {
+    "description": "图片并发数，默认 4",
+    "type": "int",
+    "default": 4,
+    "hint": "单本漫画同时下载几张图，和 JM桌面端一致。网差调到 2，网好可以调到 8。"
+  },
+  "retry_times": {
+    "description": "单域名重试次数",
+    "type": "int",
+    "default": 3,
+    "hint": "同一个域名上失败后重试几次，超了会自动换下一个域名。默认 3。"
+  },
+  "timeout": {
+    "description": "请求超时（秒）",
+    "type": "int",
+    "default": 30,
+    "hint": "单个请求的读取超时；连接超时固定为它的 2/3，且不超过 20 秒。默认 30。"
+  },
+  "custom_domains": {
+    "description": "自定义接口域名",
+    "type": "string",
+    "default": "",
+    "hint": "多个用英文逗号分隔。留空则自动获取官方域名列表。"
+  },
+  "pdf_quality": {
+    "description": "PDF 图片质量，越低越小",
+    "type": "int",
+    "default": 85,
+    "hint": "把 WebP 转成 JPEG 时的质量，50~100，默认 85。调到 75 体积大约再小 1/4，肉眼几乎无差。"
+  },
+  "keep_images": {
+    "description": "生成 PDF 后保留原图",
+    "type": "bool",
+    "default": false,
+    "hint": "关掉更省空间；打开则下次下载可以复用已下好的图，方便手动续传。"
+  },
+  "pdf_cache_limit": {
+    "description": "PDF 缓存上限",
+    "type": "int",
+    "default": 50,
+    "hint": "temp/ 目录最多保留多少个已生成的 PDF，超出的按最久未使用删除。填 0 表示不限制。"
+  },
+  "progress_at": {
+    "description": "在完成百分之几时报进度",
+    "type": "string",
+    "default": "50",
+    "hint": "可填多个，逗号分隔，例如 25,50,75。默认只在 50% 报一次。留空或填 0 则完全不报进度，只发开始和结束两条。"
+  },
+  "encrypt": {
+    "description": "给 PDF 加密码后再发",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后发出去的是带打开密码的 PDF（AES-256），没有密码打不开。必须同时填下面的密码，否则不会发文件——但漫画已经下好了，填完密码重发一次即可，不会重下。"
+  },
+  "encrypt_password": {
+    "description": "加密密码",
+    "type": "string",
+    "default": "",
+    "hint": "上面的开关打开后必填。改完密码重发一次命令即刻生效，不用重新下载。"
   }
 }
